@@ -1,26 +1,73 @@
+/* --- Color Variables for Theming --- */
+:root {
+    --bg-color: #f4f4f4;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --secondary-text: #555;
+    --primary-color: #0056b3;
+    --border-color: #e0e0e0;
+    --skill-bg: #eef;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --secondary-text: #b0b0b0;
+    --primary-color: #4dabf7;
+    --border-color: #333;
+    --skill-bg: #2c3e50;
+}
+
 /* --- General Styles --- */
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
+    position: relative;
     max-width: 900px;
     margin: auto;
-    background: #fff;
+    background: var(--container-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--skill-bg);
 }
 
 /* --- Header --- */
 header {
     text-align: center;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
@@ -28,17 +75,17 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
-    color: #0056b3; /* A professional blue */
+    color: var(--primary-color);
 }
 
 header h2 {
     margin: 5px 0;
     font-weight: 400;
-    color: #555;
+    color: var(--secondary-text);
 }
 
 .contact-info a {
-    color: #0056b3;
+    color: var(--primary-color);
     text-decoration: none;
     margin: 0 10px;
 }
@@ -54,8 +101,8 @@ section {
 
 h3 {
     font-size: 1.6em;
-    color: #333;
-    border-bottom: 2px solid #0056b3;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 5px;
     margin-bottom: 20px;
 }
@@ -73,7 +120,7 @@ h3 {
 .company {
     font-weight: 700;
     font-style: italic;
-    color: #666;
+    color: var(--secondary-text);
     margin: 0 0 10px 0;
 }
 
@@ -101,7 +148,7 @@ li {
 }
 
 #skills li {
-    background-color: #eef;
+    background-color: var(--skill-bg);
     padding: 8px 12px;
     border-radius: 5px;
     margin-bottom: 8px;
@@ -114,9 +161,9 @@ footer {
     text-align: center;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
     font-size: 0.9em;
-    color: #888;
+    color: var(--secondary-text);
 }
 
 /* --- Responsive Design --- */
@@ -126,6 +173,10 @@ footer {
     }
     .container {
         padding: 20px;
+    }
+    #theme-toggle {
+        top: 10px;
+        right: 10px;
     }
     header h1 {
         font-size: 2em;
