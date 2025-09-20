@@ -60,6 +60,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s, border-color 0.3s;
+    z-index: 10; /* Ensure button is above other content */
 }
 
 #theme-toggle:hover {
@@ -82,6 +83,26 @@ header h2 { margin: 5px 0; font-weight: 400; color: var(--secondary-text); }
 /* --- Sections --- */
 section { margin-bottom: 30px; }
 h3 { font-size: 1.6em; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-bottom: 20px; }
+
+/* --- Job and Education Headers (for logos) --- */
+.job-header, .education-header {
+    display: flex;
+    align-items: center; /* Vertically align title and logo */
+    justify-content: space-between; /* Push logo to the right */
+    margin-bottom: 5px; /* Adjust spacing below the header */
+}
+
+.job-header h4, .education-header h4 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.company-logo, .university-logo {
+    max-height: 40px; /* Adjust as needed */
+    max-width: 100px; /* Adjust as needed */
+    margin-left: 15px; /* Space between title and logo */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
 
 /* --- Experience & Projects --- */
 .job, .project { margin-bottom: 25px; }
@@ -127,4 +148,13 @@ footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1p
     #theme-toggle { top: 10px; right: 10px; }
     header h1 { font-size: 2em; }
     h3 { font-size: 1.4em; }
+    .job-header, .education-header {
+        flex-direction: column; /* Stack title and logo on small screens */
+        align-items: flex-start;
+    }
+    .company-logo, .university-logo {
+        margin-left: 0;
+        margin-top: 10px; /* Space between title and stacked logo */
+        max-width: 80px; /* Smaller logos on mobile */
+    }
 }
